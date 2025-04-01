@@ -142,7 +142,7 @@ function EventListener({ contract }) {
               }}
               className="border border-gray-300"
             >
-              Sex
+              Gender
             </th>
             <th
               style={{

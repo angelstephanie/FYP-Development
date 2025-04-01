@@ -55,7 +55,7 @@ function RemoveStaffForm({ contract }) {
       />
       <button
         type="submit"
-        className="font-semibold text-white bg-red-900 rounded-[10px] pt-[7px] pb-[7px] mt-4 mb-10"
+        className="font-semibold text-white bg-red-900  rounded-[10px] p-2 mt-4 mb-10"
       >
         Remove
       </button>

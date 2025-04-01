@@ -154,7 +154,7 @@ function UlpoadStaffForm({ contract }) {
 
       <button
         type="submit"
-        className="font-semibold text-white bg-lime-900 rounded-[10px] pt-[7px] pb-[7px] mt-4"
+        className="font-semibold text-white bg-sky-700 rounded-[10px] p-2 mt-4"
       >
         Upload
       </button>
