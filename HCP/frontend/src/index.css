@@ -5,3 +5,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.primary{
+  color: #247DCD;
+}
+
+.secondary{
+  color: #52a2d2;
+}
+
+.tertiary{
+  color: #87ece5;
+}

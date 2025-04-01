@@ -179,7 +179,7 @@ function ConfirmAppointment() {
           />
           <button
             type="button"
-            className="inline-flex w-full mt-3 justify-center gap-x-1.5 rounded-md bg-emerald-900 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
+            className="inline-flex w-full mt-3 justify-center gap-x-1.5 rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
             onClick={(event) => bookAppointment(event)}
           >
             Confirm Booking
@@ -218,7 +218,7 @@ function ConfirmAppointment() {
               <div className="w-full">
                 <button
                   type="button"
-                  className="text-emerald-900 text-white border border-emerald-900 bg-emerald-900 focus:ring-4 focus:outline-none focus:ring-emerald-900 font-medium rounded-full text-sm px-4 py-2 text-center my-3"
+                  className="text-sky-700 text-white border border-sky-700 bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-700 font-medium rounded-full text-sm px-4 py-2 text-center my-3"
                 >
                   {selectedSchedule.day + ", " + selectedSchedule.date}
                 </button>
@@ -231,7 +231,7 @@ function ConfirmAppointment() {
               <div className="w-full">
                 <button
                   type="button"
-                  className="text-emerald-900 text-white border border-emerald-900 bg-emerald-900 focus:ring-4 focus:outline-none focus:ring-emerald-900 font-medium rounded-full text-sm px-4 py-2 text-center my-3"
+                  className="text-sky-700 text-white border border-sky-700 bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-700 font-medium rounded-full text-sm px-4 py-2 text-center my-3"
                 >
                   {selectedSchedule.time}
                 </button>

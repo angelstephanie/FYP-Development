@@ -60,7 +60,12 @@ function SelectAppointment() {
   );
 
   return (
-    <div className="flex flex-row ">
+    <div className=" ">
+      <nav className='w-full my-3 flex'>
+        <img className='ml-15 w-20' src="../images/ehealth-logo.svg" alt='/'></img>
+        <h1 className='ml-[20px] mt-2 text-sky-700 font-medium text-2xl'>Electronic Health Record Sharing System</h1>
+        <div className='mr-8 ml-auto font-medium'>History</div>
+      </nav>
       <div className="w-6/10 ml-15 mt-10">
         <div className="flex ">
           <img
@@ -84,7 +89,7 @@ function SelectAppointment() {
           {doctorList.map((doctor) => (
             <button
               type="button"
-              className="flex gap-3 items-center text-black-900 hover:text-white border border-emerald-900 hover:bg-emerald-900 focus:ring-4 focus:outline-none focus:ring-emerald-900 font-medium rounded-sm text-sm px-4 py-2 text-center mt-2 mb-2"
+              className="flex gap-3 items-center text-black-900 hover:text-white border border-sky-700 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-600 font-medium rounded-sm text-sm px-4 py-2 text-center mt-2 mb-2"
               onClick={() => bookProfessional(appointment, doctor)}
             >
               <img

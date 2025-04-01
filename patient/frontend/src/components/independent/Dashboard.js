@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import myContract from "../../smartcontract/myContract";
 import web3 from "../../smartcontract/web3";
@@ -65,25 +65,20 @@ function Dashboard() {
   };
 
   return (
-    <div className="flex flex-row ">
-      <img
-        className="h-[800px] w-1/4 object-cover sticky top-0"
-        src="../images/background.png"
-        alt="background"
-      />
-      <div className="mb-[200px] mt-[100px] mx-auto w-3/5 flex-col flex gap-8  ">
-        <div className="flex">
-          <h2 className="text-2xl font-medium mb-5" id="heading">
-            Records
-          </h2>
-        </div>
-        <div className="flex gap-8">
-          <div className="flex flex-col gap-3 p-6 bg-white border border-gray-100 rounded-[10px] shadow-sm hover:bg-gray-50 w-full">
+    <div>
+      <nav className='w-full my-3 flex'>
+        <img className='ml-15 w-20' src="../images/ehealth-logo.svg" alt='/'></img>
+        <h1 className='ml-[20px] mt-2 text-sky-700 font-medium text-2xl'>Electronic Health Record Sharing System</h1>
+        <div className='mr-8 ml-auto font-medium'>History</div>
+      </nav>
+      <div className="">
+        <div className="flex gap-8 justify-center">
+          <div className="flex flex-col gap-3 p-6 bg-white border border-gray-100 rounded-[10px] shadow-sm hover:bg-gray-50 w-6/10 my-9">
             <h2 className="mb-2 w-full text-lg font-semibold tracking-tight text-gray-900 ">
               Upcoming Appointments
             </h2>
             {userAppointments.map((appointment) => (
-              <div className="flex w-full items-center">
+              <div key={appointment.ehr} className="flex w-full items-center">
                 <div className="flex flex-col px-1.5  bg-gray-900 rounded-[6px] items-center">
                   <div className="text-amber-400 font-bold ">
                     {appointment.date}
@@ -146,7 +141,7 @@ function Dashboard() {
           </button>
         </div> */}
 
-        <div className="m-auto w-full flex-col flex gap-3 mt-5 ">
+        <div className="m-auto w-6/10 flex-col flex gap-3 mt-5 ">
           <label
             htmlFor="appointment-input"
             className="blocktext-gray-900 text-2xl font-medium   mb-5"
@@ -193,6 +188,14 @@ function Dashboard() {
           >
             Cancel
           </button>
+        </div>
+
+      </div>
+      <div className="mb-[200px] mt-[100px] mx-auto w-3/5 flex-col flex gap-8  ">
+        <div className="flex">
+          <h2 className="text-2xl font-medium mb-5" id="heading">
+            Records
+          </h2>
         </div>
       </div>
     </div>
