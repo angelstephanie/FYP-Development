@@ -1,61 +1,68 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import web3 from "../../smartcontract/web3";
-import myContract from "../../smartcontract/myContract";
+import contracts from "../../smartcontract/contracts";
 import { useState } from "react";
 
 function ConfirmAppointment() {
   const location = useLocation();
+  const hospital = location.state.hospital;
+  const doctor = location.state.doctor;
   const selectedSchedule = location.state.selectedSchedule;
-
-  const [user, setUser] = useState({
-    ehr: "",
-    name: "",
-    dob: "",
-    sex: "",
-    email: "",
-    phoneNo: "",
+  const fetchedUser = location.state.user;
+  const [user, setNewUser] = useState({
+    ehr: fetchedUser.ehr,
+    name: fetchedUser.name,
+    dob: fetchedUser.dob,
+    gender: fetchedUser.gender,
+    email: fetchedUser.email,
+    phoneNo: fetchedUser.phoneNo,
   });
 
   const handleUserChange = (e) => {
     const { name, value } = e.target;
 
-    setUser((prevUser) => ({
+    setNewUser((prevUser) => ({
       ...prevUser,
       [name]: value,
     }));
+
+    console.log("user:", user);
   };
 
   const bookAppointment = async (e) => {
     const accounts = await web3.eth.getAccounts();
 
     console.log("User: ", user);
+    console.log("Hospital: ", hospital);
+    console.log("Doctor: ", doctor);
     console.log("Selected schedule: ", selectedSchedule);
 
     console.log("Waiting on transaction success...");
-    // await myContract.methods;
-    // .bookAppointment(
-    //   user.name,
-    //   22011989,
-    //   user.sex,
-    //   user.ehr,
-    //   user.email,
-    //   user.phoneNo,
-    //   selectedSchedule.doctorId,
-    //   selectedSchedule.date,
-    //   selectedSchedule.time
-    // )
-    // .send({
-    //   from: accounts[0],
-    // });
+    await contracts[hospital.id - 1].methods
+      .bookAppointment(
+        user.name,
+        user.dob.replace(/-/g, ""),
+        user.gender,
+        user.ehr,
+        user.email,
+        user.phoneNo,
+        doctor.id,
+        selectedSchedule.date,
+        selectedSchedule.time,
+        "upcoming"
+      )
+      .send({
+        from: accounts[0],
+      });
 
     console.log("Transaction completed");
 
-    bookingSent(user, selectedSchedule);
+    bookingSent(user);
   };
 
   const navigate = useNavigate();
-  const bookingSent = (user, selectedSchedule) => {
-    navigate("/dashboard", { state: { user, selectedSchedule } });
+  const bookingSent = (user) => {
+    navigate("/dashboard", { state: { user } });
   };
 
   return (
@@ -68,9 +75,7 @@ function ConfirmAppointment() {
             alt=""
           />
           <div className="ml-10">
-            <p className="text-3xl font-bold mt-2">
-              {selectedSchedule.hospital}
-            </p>
+            <p className="text-3xl font-bold mt-2">{hospital.name}</p>
           </div>
         </div>
         <hr className="mt-5 mb-4 h-px bg-gray-300 border-0 "></hr>
@@ -105,8 +110,8 @@ function ConfirmAppointment() {
           <input
             type="text"
             id="gender-input"
-            name="sex"
-            value={user.sex}
+            name="gender"
+            value={user.gender}
             onChange={handleUserChange}
             aria-describedby="helper-text-explanation"
             className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -179,7 +184,7 @@ function ConfirmAppointment() {
           />
           <button
             type="button"
-            className="inline-flex w-full mt-3 justify-center gap-x-1.5 rounded-md bg-emerald-900 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
+            className="inline-flex w-full mt-3 justify-center gap-x-1.5 rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
             onClick={(event) => bookAppointment(event)}
           >
             Confirm Booking
@@ -189,14 +194,14 @@ function ConfirmAppointment() {
       <div className="mb-[200px] mt-[80px] w-4/10 flex-col flex gap-8  ">
         <div className="flex justify-center gap-7 flex-wrap">
           <div
-            key={selectedSchedule.doctorId}
+            key={doctor.id}
             className="w-100  p-5 bg-white border border-gray-100 rounded-[5px] shadow-sm hover:bg-gray-50"
           >
             <h2 className="text-xl font-semibold mt-4 mb-5" id="heading">
               Appointment Details
             </h2>
             <h2 className="text-2xl font-semibold mt-4 mb-5">
-              Dr. {selectedSchedule.doctorName}
+              Dr. {doctor.name}
             </h2>
             <span className="mt-10 pr-3 font-medium rtl:text-right text-md w-full">
               Address
@@ -208,7 +213,7 @@ function ConfirmAppointment() {
                 alt=""
               />
               <p className="text-sm text-gray-700">
-                {selectedSchedule.hospital}, XX Road 33, Tai Po, New Territories
+                {hospital.name}, {hospital.address}, {hospital.district}
               </p>
             </div>
             <div className="mt-8">
@@ -218,7 +223,7 @@ function ConfirmAppointment() {
               <div className="w-full">
                 <button
                   type="button"
-                  className="text-emerald-900 text-white border border-emerald-900 bg-emerald-900 focus:ring-4 focus:outline-none focus:ring-emerald-900 font-medium rounded-full text-sm px-4 py-2 text-center my-3"
+                  className="text-sky-700 text-white border border-sky-700 bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-700 font-medium rounded-full text-sm px-4 py-2 text-center my-3"
                 >
                   {selectedSchedule.day + ", " + selectedSchedule.date}
                 </button>
@@ -231,7 +236,7 @@ function ConfirmAppointment() {
               <div className="w-full">
                 <button
                   type="button"
-                  className="text-emerald-900 text-white border border-emerald-900 bg-emerald-900 focus:ring-4 focus:outline-none focus:ring-emerald-900 font-medium rounded-full text-sm px-4 py-2 text-center my-3"
+                  className="text-sky-700 text-white border border-sky-700 bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-700 font-medium rounded-full text-sm px-4 py-2 text-center my-3"
                 >
                   {selectedSchedule.time}
                 </button>
