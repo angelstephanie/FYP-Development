@@ -8,20 +8,23 @@ import Search from "./components/independent/Search.js";
 import SelectAppointment from "./components/booking/SelectAppointment.js";
 import BookAppointment from "./components/booking/BookAppointment.js";
 import ConfirmAppointment from "./components/booking/ConfirmAppointment.js";
+import ErrorBoundary from "./components/independent/ErrorBoundary.js";
 
 import reportWebVitals from "./reportWebVitals";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/selectAppointment" element={<SelectAppointment />} />
-        <Route path="/bookAppointment" element={<BookAppointment />} />
-        <Route path="/confirmAppointment" element={<ConfirmAppointment />} />
-      </Routes>
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/selectAppointment" element={<SelectAppointment />} />
+          <Route path="/bookAppointment" element={<BookAppointment />} />
+          <Route path="/confirmAppointment" element={<ConfirmAppointment />} />
+        </Routes>
+      </ErrorBoundary>
     </BrowserRouter>
   );
 };
