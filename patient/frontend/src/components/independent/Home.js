@@ -30,6 +30,13 @@ function Home() {
         </h1>
       </nav>
       <form className="m-auto w-1/3 flex-col flex gap-3 mt-20">
+        <h2 className="text-2xl m-auto font-semibold mb-10">Login</h2>
+        <div className="text-xl m-auto font-medium text-cyan-500">Login with Iamsmart</div>
+        <div  className="text-md m-auto">1. Please open iAM Smart App in your mobile</div>
+        <div  className="text-md m-auto">2. Tap the scan button in iAM Smart App</div>
+        <div  className="text-md m-auto">3. Scan the QR Code</div>
+        <img alt="/" src="../images/iamsmart-qrcode.png" className="w-35 m-auto mb-10"></img>
+        <div className="text-xl m-auto font-medium text-cyan-500">Login manually</div>
         <label htmlFor="email-input" className="blocktext-gray-900 font-medium">
           Email address
         </label>
@@ -63,7 +70,7 @@ function Home() {
         >
           Login
         </button>
-        <div className="m-auto flex">
+        <div className="m-auto flex mb-30">
           <p>Don’t have an account?&nbsp;</p>
           <a
             className="text-sky-700"
