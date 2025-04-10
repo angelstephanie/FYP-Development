@@ -100,7 +100,7 @@ function Search() {
           User History
         </div>
       </nav>
-      <div className="mb-[200px] mx-auto w-4/5 flex-col flex gap-8  ">
+      <div className="mb-[200px] mx-auto w-4/5 flex-col flex gap-10  ">
         <div className="flex justify-center">
           <h2 className="text-2xl font-medium my-12" id="heading">
             Booking System
@@ -183,7 +183,7 @@ function Search() {
           </form>
         </div> */}
 
-        {/* <div className="flex justify-center gap-7 flex-wrap mb-5">
+        {/* <div className="flex gap-7 flex-wrap mb-5">
           <input
             type="text"
             placeholder="Search by Hospital Name"
@@ -230,7 +230,7 @@ function Search() {
         </ul> */}
 
         <div className="p-5">
-          <div className="flex justify-center gap-7 mb-5">
+          <div className="flex  gap-7 mb-5">
             <div className="relative inline-block text-left">
               <div>
                 <button
@@ -351,7 +351,7 @@ function Search() {
             </button>
           </div>
 
-          {/* <div className="flex justify-center gap-7 flex-wrap">
+          {/* <div className="flex gap-7 flex-wrap">
             {filteredHospitals.map((hospital) => (
               <div
                 key={hospital.id}
@@ -376,7 +376,7 @@ function Search() {
                   </p>
                   <button
                     onClick={() => handleBookAppointment(hospital)} // Define this function as needed
-                    className="inline-flex w-full mt-3 justify-center rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
+                    className="inline-flex w-full mt-3  rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
                   >
                     Book
                   </button>
@@ -385,9 +385,9 @@ function Search() {
             ))}
           </div> */}
         </div>
-
-        <div className="flex justify-center gap-7 flex-wrap">
-          {hospitals.map((hospital) => (
+        <div className="text-cyan-500 font-semibold text-2xl">Public Hospital</div>
+        <div className="flex  gap-7 flex-wrap">
+          {hospitals.filter(hospital => hospital.type === "Public Hospital").map((hospital) => (
             <div
               key={hospital.id}
               className="w-80  p-5 bg-white border border-gray-100 rounded-[5px] shadow-sm hover:bg-gray-50"
@@ -395,6 +395,74 @@ function Search() {
               <div className="flex gap-4">
                 <img
                   src={`${process.env.PUBLIC_URL}/images/hospital.png`}
+                  className="size-15"
+                  alt=""
+                />
+                <div className="">
+                  <p className="text-sm text-gray-700">{hospital.type}</p>
+                  <p className="font-semibold">{hospital.name}</p>
+                  <p className="text-xs text-gray-700">{hospital.district}</p>
+                </div>
+              </div>
+              <div className="mt-2">
+                <hr className="mt-4 mb-2 h-px bg-gray-300 border-0 "></hr>
+                <p className="text-gray-700 text-sm">
+                  <span className="text-black">{hospital.address} </span>
+                </p>
+                <button
+                  onClick={() => handleBookAppointment(hospital)}
+                  className="inline-flex w-full mt-3 justify-center secondary gap-x-1.5 rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
+                >
+                  Book
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="text-cyan-500 font-semibold text-2xl">Private Hospital</div>
+        <div className="flex gap-7 flex-wrap">
+          {hospitals.filter(hospital => hospital.type === "Private Hospital").map((hospital) => (
+            <div
+              key={hospital.id}
+              className="w-80  p-5 bg-white border border-gray-100 rounded-[5px] shadow-sm hover:bg-gray-50"
+            >
+              <div className="flex gap-4">
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/hospital.png`}
+                  className="size-15"
+                  alt=""
+                />
+                <div className="">
+                  <p className="text-sm text-gray-700">{hospital.type}</p>
+                  <p className="font-semibold">{hospital.name}</p>
+                  <p className="text-xs text-gray-700">{hospital.district}</p>
+                </div>
+              </div>
+              <div className="mt-2">
+                <hr className="mt-4 mb-2 h-px bg-gray-300 border-0 "></hr>
+                <p className="text-gray-700 text-sm">
+                  <span className="text-black">{hospital.address} </span>
+                </p>
+                <button
+                  onClick={() => handleBookAppointment(hospital)}
+                  className="inline-flex w-full mt-3 justify-center secondary gap-x-1.5 rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
+                >
+                  Book
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="text-cyan-500 font-semibold text-2xl">Private Medical Practitioners</div>
+        <div className="flex gap-7 flex-wrap">
+          {hospitals.filter(hospital => hospital.type === "Private Medical Practitioners").map((hospital) => (
+            <div
+              key={hospital.id}
+              className="w-80  p-5 bg-white border border-gray-100 rounded-[5px] shadow-sm hover:bg-gray-50"
+            >
+              <div className="flex gap-4">
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/doctor${hospital.id}.png`}
                   className="size-15"
                   alt=""
                 />

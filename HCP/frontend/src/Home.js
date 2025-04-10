@@ -9,13 +9,18 @@ import EventListener from "./components/eventListener";
 function Home() {
   const contract = myContract;
   return (
-    <div className="public-page flex flex-row">
+    <div className=" flex flex-col mb-10 gap-5">
+      <nav className='w-full my-3 flex'>
+        <img className='ml-15 w-20' src="../images/ehealth-logo.svg" alt='/'></img>
+        <h1 className='ml-[20px] mt-2 text-sky-700 font-medium text-2xl'>Electronic Health Record Sharing System</h1>
+        <div className='mr-8 ml-auto font-medium'>History</div>
+      </nav>
       <ErrorBoundary>
-        <div className="m-auto w-1/3 flex-col flex gap-3 mt-10 pt-10">
+        <div className="m-auto w-2/3 flex-col flex gap-5 ">
           <UlpoadStaffForm contract={contract} />
           <RemoveStaffForm contract={contract} />
         </div>
-        <div className="medical-professionals">
+        <div className="medical-professionals  w-2/3 m-auto">
           <StaffList contract={contract} />
           <EventListener contract={contract} />
         </div>

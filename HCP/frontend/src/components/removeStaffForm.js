@@ -31,7 +31,7 @@ function RemoveStaffForm({ contract }) {
   };
 
   return (
-    <form onSubmit={removeStaff}>
+    <form onSubmit={removeStaff} className="mt-10">
       <label
         htmlFor="remove-input"
         className="blocktext-gray-900 text-2xl font-medium mt-10 pt-10"

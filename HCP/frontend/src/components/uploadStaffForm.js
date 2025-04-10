@@ -57,7 +57,7 @@ function UlpoadStaffForm({ contract }) {
   };
 
   return (
-    <form onSubmit={insertNewStaff}>
+    <form onSubmit={insertNewStaff} className="gap-3 flex flex-col">
       <label
         htmlFor="remove-input"
         className="blocktext-gray-900 text-2xl font-medium mt-10 pt-10"
