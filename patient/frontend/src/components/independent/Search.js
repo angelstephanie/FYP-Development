@@ -73,8 +73,8 @@ function Search() {
         (hospitalTypeFilter ? hospital.type === hospitalTypeFilter : true) &&
         (hospitalNameFilter
           ? hospital.name
-              .toLowerCase()
-              .includes(hospitalNameFilter.toLowerCase())
+            .toLowerCase()
+            .includes(hospitalNameFilter.toLowerCase())
           : true)
       );
     });
@@ -418,6 +418,61 @@ function Search() {
               </div>
             </div>
           ))}
+          <div
+            className="w-80  p-5 bg-white border border-gray-100 rounded-[5px] shadow-sm hover:bg-gray-50"
+          >
+            <div className="flex gap-4">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/hospital.png`}
+                className="size-15"
+                alt=""
+              />
+              <div className="">
+                <p className="text-sm text-gray-700">Public Hospital</p>
+                <p className="font-semibold">Sha Tin Hospital</p>
+                <p className="text-xs text-gray-700">Sha Tin</p>
+              </div>
+            </div>
+            <div className="mt-2">
+              <hr className="mt-4 mb-2 h-px bg-gray-300 border-0 "></hr>
+              <p className="text-gray-700 text-sm">
+                <span className="text-black">33號 A Kung Kok St, Ma On Shan</span>
+              </p>
+              <button
+                className="inline-flex w-full mt-3 justify-center secondary gap-x-1.5 rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
+              >
+                Book
+              </button>
+            </div>
+          </div>
+
+          <div
+            className="w-80  p-5 bg-white border border-gray-100 rounded-[5px] shadow-sm hover:bg-gray-50"
+          >
+            <div className="flex gap-4">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/hospital.png`}
+                className="size-15"
+                alt=""
+              />
+              <div className="">
+                <p className="text-sm text-gray-700">Public Hospital</p>
+                <p className="font-semibold">Queen Elizabeth Hospital</p>
+                <p className="text-xs text-gray-700">Yau Tsim Mong</p>
+              </div>
+            </div>
+            <div className="mt-2">
+              <hr className="mt-4 mb-2 h-px bg-gray-300 border-0 "></hr>
+              <p className="text-gray-700 text-sm">
+                <span className="text-black">30號 Gascoigne Rd, King's Park</span>
+              </p>
+              <button
+                className="inline-flex w-full mt-3 justify-center secondary gap-x-1.5 rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
+              >
+                Book
+              </button>
+            </div>
+          </div>
         </div>
         <div className="text-cyan-500 font-semibold text-2xl">Private Hospital</div>
         <div className="flex gap-7 flex-wrap">
@@ -452,6 +507,90 @@ function Search() {
               </div>
             </div>
           ))}
+          <div
+            className="w-80  p-5 bg-white border border-gray-100 rounded-[5px] shadow-sm hover:bg-gray-50"
+          >
+            <div className="flex gap-4">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/hospital.png`}
+                className="size-15"
+                alt=""
+              />
+              <div className="">
+                <p className="text-sm text-gray-700">Private Hospital</p>
+                <p className="font-semibold">Hong Kong Baptist Hospital</p>
+                <p className="text-xs text-gray-700">Kowloon Tong</p>
+              </div>
+            </div>
+            <div className="mt-2">
+              <hr className="mt-4 mb-2 h-px bg-gray-300 border-0 "></hr>
+              <p className="text-gray-700 text-sm">
+                <span className="text-black">222 Waterloo Rd, Kowloon Tong</span>
+              </p>
+              <button
+                className="inline-flex w-full mt-3 justify-center secondary gap-x-1.5 rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
+              >
+                Book
+              </button>
+            </div>
+          </div>
+
+
+          <div
+            className="w-80  p-5 bg-white border border-gray-100 rounded-[5px] shadow-sm hover:bg-gray-50"
+          >
+            <div className="flex gap-4">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/hospital.png`}
+                className="size-15"
+                alt=""
+              />
+              <div className="">
+                <p className="text-sm text-gray-700">Private Hospital</p>
+                <p className="font-semibold">Matilda International Hospital</p>
+                <p className="text-xs text-gray-700">Central</p>
+              </div>
+            </div>
+            <div className="mt-2">
+              <hr className="mt-4 mb-2 h-px bg-gray-300 border-0 "></hr>
+              <p className="text-gray-700 text-sm">
+                <span className="text-black">41 Mount Kellett Rd, The Peak</span>
+              </p>
+              <button
+                className="inline-flex w-full mt-3 justify-center secondary gap-x-1.5 rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
+              >
+                Book
+              </button>
+            </div>
+          </div>
+
+          <div
+            className="w-80  p-5 bg-white border border-gray-100 rounded-[5px] shadow-sm hover:bg-gray-50"
+          >
+            <div className="flex gap-4">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/hospital.png`}
+                className="size-15"
+                alt=""
+              />
+              <div className="">
+                <p className="text-sm text-gray-700">Private Hospital</p>
+                <p className="font-semibold">Union Hospital</p>
+                <p className="text-xs text-gray-700">Sha Tin</p>
+              </div>
+            </div>
+            <div className="mt-2">
+              <hr className="mt-4 mb-2 h-px bg-gray-300 border-0 "></hr>
+              <p className="text-gray-700 text-sm">
+                <span className="text-black">18 Fu Kin St, Tai Wai</span>
+              </p>
+              <button
+                className="inline-flex w-full mt-3 justify-center secondary gap-x-1.5 rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
+              >
+                Book
+              </button>
+            </div>
+          </div>
         </div>
         <div className="text-cyan-500 font-semibold text-2xl">Private Medical Practitioners</div>
         <div className="flex gap-7 flex-wrap">
@@ -486,7 +625,68 @@ function Search() {
               </div>
             </div>
           ))}
+          <div
+            className="w-80  p-5 bg-white border border-gray-100 rounded-[5px] shadow-sm hover:bg-gray-50"
+          >
+            <div className="flex gap-4">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/doctor1.png`}
+                className="size-15"
+                alt=""
+              />
+              <div className="">
+                <p className="text-sm text-gray-700">Private Medical Practitioners</p>
+                <p className="font-semibold">HK Medical Consultation Health Clinic</p>
+                <p className="text-xs text-gray-700">Kowloon Tong</p>
+              </div>
+            </div>
+            <div className="mt-2">
+              <hr className="mt-4 mb-2 h-px bg-gray-300 border-0 "></hr>
+              <p className="text-gray-700 text-sm">
+                <span className="text-black">RM. 1601-1604. 16/F238. 238 centre., Nathan Rd, Jordan</span>
+              </p>
+              <button
+                className="inline-flex w-full mt-3 justify-center secondary gap-x-1.5 rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
+              >
+                Book
+              </button>
+            </div>
+          </div>
+          <div
+            className="w-80  p-5 bg-white border border-gray-100 rounded-[5px] shadow-sm hover:bg-gray-50"
+          >
+            <div className="flex gap-4">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/doctor2.png`}
+                className="size-15"
+                alt=""
+              />
+              <div className="">
+                <p className="text-sm text-gray-700">Private Medical Practitioners</p>
+                <p className="font-semibold">All Grace Medical and Well Person Clinic</p>
+                <p className="text-xs text-gray-700">Hung Hom</p>
+              </div>
+            </div>
+            <div className="mt-2">
+              <hr className="mt-4 mb-2 h-px bg-gray-300 border-0 "></hr>
+              <p className="text-gray-700 text-sm">
+                <span className="text-black">Shop 5, G/F, Full Wing Building Block B, 436–450 Chatham Rd N, Hung Hom</span>
+              </p>
+              <button
+                className="inline-flex w-full mt-3 justify-center secondary gap-x-1.5 rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-xs ring-stone-300 ring-inset hover:bg-white hover:text-black"
+              >
+                Book
+              </button>
+            </div>
+          </div>
+
+
+
+
         </div>
+
+
+        
       </div>
     </div>
   );
